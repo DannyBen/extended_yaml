@@ -1,0 +1,4 @@
+# Included by ../simple.yml
+
+settings:
+  host: example.com

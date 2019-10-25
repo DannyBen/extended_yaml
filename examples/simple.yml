@@ -1,0 +1,11 @@
+# Load this file with
+#
+#   ExtendedYAML.load 'simple.yml'
+#
+# Merge in other files (extension is optional).
+# Path is relative to the location of the YAML file.
+extends: subdir/production.yml
+
+settings:
+  host: localhost
+  port: 80
