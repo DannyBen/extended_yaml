@@ -1,4 +1,5 @@
 class ExtendedYAML
+  # Hash refinement to allow deep merging of other hashes.
   module DeepMerge
     refine Hash do
       def deep_merge(other_hash, &block)

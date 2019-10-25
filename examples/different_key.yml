@@ -1,0 +1,10 @@
+# Load this file with
+#
+#   ExtendedYAML.load 'master.yml', key: 'include'
+#
+# By default, ExtendedYAML is looking for a key names 'extends'.
+# You can use any other key by providing it as a parameter to
+# ExtendedYAML.load.
+include: subdir/deep
+
+override: will be overridden

@@ -2,35 +2,30 @@ require 'extended_yaml/deep_merge'
 require 'erb'
 require 'yaml'
 
-if ENV['BYEBUG']
-  require 'byebug'
-  require 'lp'
-end
-
 class ExtendedYAML
   using DeepMerge
-  attr_reader :file
+  attr_reader :file, :key
 
-  # Returns the parsed result hash
-  def self.load(file)
-    new(file).result
+  # @param [String] file path to YAML file
+  # @param [String] key YAML key to use for loading files
+  # @return [Hash, Array] the parsed YAML
+  def self.load(file, key: 'extends')
+    new(file, key: key).result
   end
 
-  def initialize(file)
-    @file = file
+  def initialize(file, key: 'extends')
+    @file, @key = file, key
   end
 
-  # Returns the parsed result hash
+  # @return [Hash, Array] the parsed YAML
   def result
     data = ::YAML.load evaluate
     resolve_extends data
   end
 
-  # Returns the YAML string, with evaluated !includes and ERB
+  # @return [String] the YAML string, with evaluated and ERB
   def evaluate
-    text = File.read file
-    text = evaluate_includes text
-    ERB.new(text).result
+    ERB.new(File.read file).result
   end
 
 private
@@ -43,11 +38,10 @@ private
     @base_dir ||= File.dirname file
   end
 
-  # Accepts a hash data, possibly with 'extends' array, merges the data from 
-  # the extend source, and deletes the extends key.
-  # Returns the merged hash data.
+  # @param [Hash] data structure, possibly with 'extends' array
+  # @return [Hash] the merged data
   def resolve_extends(data)
-    extra_files = data.delete 'extends'
+    extra_files = data.delete key
     return data unless extra_files
 
     extra_files = [extra_files] unless extra_files.is_a? Array
@@ -59,15 +53,5 @@ private
     end
 
     data
-  end
-
-  # Replaces all !include directives
-  def evaluate_includes(text)
-    result = text.dup
-    text.scan /^(!include (.*))/ do |match, file|
-      path = File.expand_path("#{file}#{extension}", base_dir)
-      result.sub! match, self.class.new(path).evaluate
-    end
-    result
   end
 end

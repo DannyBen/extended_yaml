@@ -7,6 +7,12 @@ array:
 - will...
 - be
 - extended
+nested:
+  array:
+  - will
+  - also...
+  - be
+  - merged
 hash:
   this: list
   will: also

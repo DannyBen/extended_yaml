@@ -1,3 +1,7 @@
+# Load this file with
+#
+#   ExtendedYAML.load 'master.yml'
+#
 # Merge in other files (extension is optional).
 # Path is relative to the location of the YAML file.
 extends:
@@ -16,6 +20,11 @@ array:
 - this
 - list
 - will...
+
+nested:
+  array:
+  - will
+  - also...
 
 # Hashes will be merged with any matching data in the loaded files
 hash:
