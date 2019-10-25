@@ -1,0 +1,15 @@
+---
+erb_support: true
+override: was overridden by deep.yml
+array:
+- this
+- list
+- will...
+- be
+- extended
+hash:
+  this: list
+  will: also
+  be: extended
+deep: true
+deeper: true

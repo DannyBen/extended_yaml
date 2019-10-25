@@ -1,0 +1,23 @@
+# Merge in other files (extension is optional).
+# Path is relative to the location of the YAML file.
+extends:
+- subdir/array
+- subdir/hash.yml
+- subdir/deep
+
+# Add any Ruby code using ERB tags
+erb_support: <%= "YES".downcase %>
+
+# Any key that exists also in any of the loaded files, will be overridden.
+override: will be overridden
+
+# Arrays will be merged with any matching data in the loaded files
+array:
+- this
+- list
+- will...
+
+# Hashes will be merged with any matching data in the loaded files
+hash:
+  this: list
+  will: also
