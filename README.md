@@ -2,6 +2,8 @@ Extended YAML
 ==================================================
 
 [![Gem Version](https://badge.fury.io/rb/extended_yaml.svg)](https://badge.fury.io/rb/extended_yaml)
+[![Build Status](https://travis-ci.com/DannyBen/extended_yaml.svg?branch=master)](https://travis-ci.com/DannyBen/extended_yaml)
+[![Maintainability](https://api.codeclimate.com/v1/badges/0d162ff84c50abe7c83a/maintainability)](https://codeclimate.com/github/DannyBen/extended_yaml/maintainability)
 
 ---
 
@@ -67,7 +69,7 @@ Notes
 6. If you need to use a key that is named differently, provide it using the
    `key` keyword argument:
    ```ruby
-   ExtendedYAML.load 'examples/simple.yml, key: 'include'
+   ExtendedYAML.load 'examples/simple.yml', key: 'include'
    ```
 
 See the [examples/master.yml](examples/master.yml) file for additional
