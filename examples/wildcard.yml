@@ -1,0 +1,13 @@
+# Load this file with
+#
+#   ExtendedYAML.load 'wildcard.yml'
+#
+# Use * to trigger a wildcard import and load all the matching files.
+# Extension is optional in all cases.
+extends:
+- subdir/production.yml
+- wildcard/*
+
+settings:
+  host: localhost
+  port: 80
