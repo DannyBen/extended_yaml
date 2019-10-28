@@ -66,8 +66,10 @@ Notes
 4. ERB tags will be evaluated in all YAML files.
 5. The `extends` option can use either a single file string, or an array. 
    Extensions are optional.
-6. If you need to use a key that is named differently, provide it using the
-   `key` keyword argument:
+6. Using `*` anywhere in the `extends` path will load multiple files with one
+   call.
+7. If you need to use a key that is named differently than `extends`, provide
+   it using the `key` keyword argument:
    ```ruby
    ExtendedYAML.load 'examples/simple.yml', key: 'include'
    ```

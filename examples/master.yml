@@ -1,9 +1,14 @@
 # Load this file with
 #
 #   ExtendedYAML.load 'master.yml'
+
+# The `extends` key defines additional files to load
 #
-# Merge in other files (extension is optional).
-# Path is relative to the location of the YAML file.
+# - Path is relative to the location of the YAML file.
+# - This can be either an array or a single string.
+# - Extension is optional.
+# - Using * anywhere in the path will trigger a glob search and load all
+#   matching files.
 extends:
 - subdir/array
 - subdir/hash.yml

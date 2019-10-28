@@ -38,20 +38,45 @@ private
     @base_dir ||= File.dirname file
   end
 
-  # @param [Hash] data structure, possibly with 'extends' array
+  # @param [Hash] data the data structure, possibly with 'extends' array
   # @return [Hash] the merged data
   def resolve_extends(data)
     extra_files = data.delete key
     return data unless extra_files
 
-    extra_files = [extra_files] unless extra_files.is_a? Array
+    extra_files = expand_file_list extra_files
 
-    extra_files.each do |extra_file|
-      extra_file = extra_file + extension unless extra_file.end_with? extension
-      path = File.expand_path extra_file, base_dir
+    extra_files.each do |path|
       data.deep_merge! self.class.new(path).result
     end
 
     data
+  end
+
+  # Receives a string or an array of strings, each representing an acceptable
+  # path definition. Each definition may be with or without a file etxension,
+  # and may be a glob pattern. The resulting array will be a normalized list
+  # of full paths.
+  #
+  # @param [Array, String] files one or more path definitions
+  # @return [Array] a normalized list of absolute paths
+  def expand_file_list(files)
+    list = []
+    files = [files] unless files.is_a? Array
+
+    files.each do |path|
+      list += expand_path path
+    end
+
+    list
+  end
+
+  # @param [String] path the path to the YAML file, with or without extension.
+  #   May include a glob pattern wildcard.
+  # @return [Array] one or more absolute paths.
+  def expand_path(path)
+    path += extension unless path.end_with? extension
+    path = File.expand_path path, base_dir
+    path.include?('*') ? Dir[path] : [path]
   end
 end
