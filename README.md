@@ -46,7 +46,7 @@ settings:
   host: example.com
 ```
 
-We can now load the extended YAML file likw this:
+We can now load the extended YAML file like this:
 
 ```ruby
 # Load an extended YAML
