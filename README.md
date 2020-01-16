@@ -53,7 +53,7 @@ We can now load the extended YAML file like this:
 require 'extended_yaml'
 
 p ExtendedYAML.load 'examples/simple.yml'
-#=> {"settings"=>{"host"=>"example.com", "port"=>80}}
+#=> {"settings"=>{"host"=>"localhost", "port"=>80}}
 ```
 
 Notes
