@@ -1,4 +1,6 @@
 ---
-override: was overridden by deep.yml
-deep: true
 deeper: true
+deep_include: true
+override: will be overridden
+extends: deeper
+deep: true

@@ -1,0 +1,10 @@
+# Load this file with
+#
+#   ExtendedYAML.load 'environment.yml'
+#
+# You can extend based on environment variables, or other Ruby blogic
+extends: subdir/<%= ENV['ENVIRONMENT'] %>.yml
+
+settings:
+  host: localhost
+  port: 3000
