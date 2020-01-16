@@ -5,6 +5,11 @@
 # By default, ExtendedYAML is looking for a key names 'extends'.
 # You can use any other key by providing it as a parameter to
 # ExtendedYAML.load.
-include: subdir/deep
+# Note that the provided key will also be used in all loaded files.
+include:
+# this file uses 'extends' still, so it will not be extended any further
+- subdir/deep
+# this file uses the proper 'include' key, so it should be extended futher
+- subdir/deep_include
 
 override: will be overridden

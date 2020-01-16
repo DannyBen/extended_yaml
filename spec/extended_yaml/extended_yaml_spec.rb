@@ -9,6 +9,16 @@ describe ExtendedYAML do
       expect(subject.to_yaml).to match_fixture('master.yml')
     end
 
+    context "when there are ERB tags in the extends tag" do
+      subject { described_class.load 'examples/environment.yml' }
+      before { ENV['ENVIRONMENT'] = 'production' }
+      after  { ENV['ENVIRONMENT'] = nil }
+
+      it "evaluates the ERB before extending" do
+        expect(subject.to_yaml).to match_fixture('environment.yml')
+      end
+    end
+
     context "when a different key is provided" do
       subject { described_class.load 'examples/different_key.yml', key: 'include' }
 

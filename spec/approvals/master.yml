@@ -1,21 +1,19 @@
 ---
-erb_support: true
-override: was overridden by deep.yml
+deeper: true
+deep: true
+override: will be overridden
+hash:
+  subdir_hash: true
+  master_hash: true
 array:
-- this
-- list
-- will...
-- be
-- extended
+- subdir/array item 1
+- subdir/array item 2
+- master item 1
+- master item 2
 nested:
   array:
-  - will
-  - also...
-  - be
-  - merged
-hash:
-  this: list
-  will: also
-  be: extended
-deep: true
-deeper: true
+  - subdir/array item 1
+  - subdir/array item 2
+  - master item 1
+  - master item 2
+erb_support: true

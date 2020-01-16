@@ -47,7 +47,7 @@ private
     extra_files = expand_file_list extra_files
 
     extra_files.each do |path|
-      data.deep_merge! self.class.new(path).result
+      data = self.class.new(path, key: key).result.deep_merge data
     end
 
     data

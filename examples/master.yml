@@ -22,16 +22,14 @@ override: will be overridden
 
 # Arrays will be merged with any matching data in the loaded files
 array:
-- this
-- list
-- will...
+- master item 1
+- master item 2
 
 nested:
   array:
-  - will
-  - also...
+  - master item 1
+  - master item 2
 
 # Hashes will be merged with any matching data in the loaded files
 hash:
-  this: list
-  will: also
+  master_hash: true

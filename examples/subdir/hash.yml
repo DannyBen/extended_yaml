@@ -1,2 +1,2 @@
 hash:
-  be: extended
+  subdir_hash: true

@@ -1,7 +1,7 @@
 ---
-settings:
-  host: example.com
-  port: 80
-imported_from_one: true
-override: two
 imported_from_two: true
+override: one
+imported_from_one: true
+settings:
+  host: localhost
+  port: 80

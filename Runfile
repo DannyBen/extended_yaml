@@ -30,3 +30,5 @@ action :changelog do
   run 'github_changelog_generator --cache-file tmp/changlog-cache'  
   run "git commit -am 'update changelog' && git push"
 end
+
+require_relative 'debug' if File.exist? 'debug.rb'

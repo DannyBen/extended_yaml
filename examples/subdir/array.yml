@@ -1,8 +1,8 @@
 array:
-- be
-- extended
+- subdir/array item 1
+- subdir/array item 2
 
 nested:
   array:
-  - be
-  - merged
+  - subdir/array item 1
+  - subdir/array item 2
