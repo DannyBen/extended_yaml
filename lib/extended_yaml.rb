@@ -17,10 +17,10 @@ class ExtendedYAML
     @file, @key = file, key
   end
 
-  # @return [Hash, Array] the parsed YAML
+  # @return [Hash, Array, nil] the parsed YAML
   def result
     data = ::YAML.load evaluate
-    resolve_extends data
+    data ? resolve_extends(data) : nil
   end
 
   # @return [String] the YAML string, with evaluated and ERB
