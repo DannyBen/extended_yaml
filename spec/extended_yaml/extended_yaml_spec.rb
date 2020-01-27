@@ -34,5 +34,21 @@ describe ExtendedYAML do
         expect(subject.to_yaml).to match_fixture('wildcard.yml')
       end
     end
+
+    context "with an invalid path" do
+      subject { described_class.load 'no-such-file.yml' }
+
+      it "raises Errno::ENOENT" do
+        expect { subject }.to raise_error(Errno::ENOENT, /No such file or directory/)
+      end
+    end
+
+    context "with an empty file" do
+      subject { described_class.load 'spec/fixtures/empty.yml' }
+
+      it "returns nil" do
+        expect(subject).to be_nil
+      end
+    end
   end
 end
