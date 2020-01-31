@@ -2,7 +2,7 @@ Extended YAML
 ==================================================
 
 [![Gem Version](https://badge.fury.io/rb/extended_yaml.svg)](https://badge.fury.io/rb/extended_yaml)
-[![Build Status](https://travis-ci.com/DannyBen/extended_yaml.svg?branch=master)](https://travis-ci.com/DannyBen/extended_yaml)
+[![Build Status](https://github.com/DannyBen/extended_yaml/workflows/Test/badge.svg)](https://github.com/DannyBen/extended_yaml/actions?query=workflow%3ATest)
 [![Maintainability](https://api.codeclimate.com/v1/badges/0d162ff84c50abe7c83a/maintainability)](https://codeclimate.com/github/DannyBen/extended_yaml/maintainability)
 
 ---
