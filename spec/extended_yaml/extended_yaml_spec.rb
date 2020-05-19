@@ -6,7 +6,7 @@ describe ExtendedYAML do
     subject { described_class.load 'examples/master.yml' }
 
     it "loads and evaluates a YAML file" do
-      expect(subject.to_yaml).to match_fixture('master.yml')
+      expect(subject.to_yaml).to match_approval('master.yml')
     end
 
     context "when there are ERB tags in the extends tag" do
@@ -15,7 +15,7 @@ describe ExtendedYAML do
       after  { ENV['ENVIRONMENT'] = nil }
 
       it "evaluates the ERB before extending" do
-        expect(subject.to_yaml).to match_fixture('environment.yml')
+        expect(subject.to_yaml).to match_approval('environment.yml')
       end
     end
 
@@ -23,7 +23,7 @@ describe ExtendedYAML do
       subject { described_class.load 'examples/different_key.yml', key: 'include' }
 
       it "uses that key to load additional YAML files" do
-        expect(subject.to_yaml).to match_fixture('different_key.yml')
+        expect(subject.to_yaml).to match_approval('different_key.yml')
       end
     end
 
@@ -31,7 +31,7 @@ describe ExtendedYAML do
       subject { described_class.load 'examples/wildcard.yml' }
 
       it "imports all files" do
-        expect(subject.to_yaml).to match_fixture('wildcard.yml')
+        expect(subject.to_yaml).to match_approval('wildcard.yml')
       end
     end
 
