@@ -1,0 +1,5 @@
+---
+list: &1
+- one
+- two
+another_list: *1

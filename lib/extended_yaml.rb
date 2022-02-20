@@ -19,7 +19,14 @@ class ExtendedYAML
 
   # @return [Hash, Array, nil] the parsed YAML
   def result
-    data = ::YAML.load evaluate
+    # ref: https://bugs.ruby-lang.org/issues/17866
+    begin
+      data = ::YAML.load evaluate, aliases: true
+    rescue ArgumentError
+      # :nocov:
+      data = ::YAML.load evaluate
+      # :nocov:
+    end
     data ? resolve_extends(data) : nil
   end
 
