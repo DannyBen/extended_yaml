@@ -9,6 +9,15 @@ describe ExtendedYAML do
       expect(subject.to_yaml).to match_approval('master.yml')
     end
 
+    # Ruby 3.1 / Psych 4 issue https://bugs.ruby-lang.org/issues/17866
+    context "when the YAML file contains anchors" do
+      subject { described_class.load 'spec/fixtures/anchors.yml' }
+
+      it "loads and evaluates a YAML file" do
+        expect(subject.to_yaml).to match_approval('anchors.yml')
+      end
+    end
+
     context "when there are ERB tags in the extends tag" do
       subject { described_class.load 'examples/environment.yml' }
       before { ENV['ENVIRONMENT'] = 'production' }
@@ -50,5 +59,6 @@ describe ExtendedYAML do
         expect(subject).to be_nil
       end
     end
+
   end
 end
