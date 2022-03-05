@@ -21,11 +21,11 @@ class ExtendedYAML
   def result
     # ref: https://bugs.ruby-lang.org/issues/17866
     begin
-      data = ::YAML.load evaluate, aliases: true
-    rescue ArgumentError
-      # :nocov:
+      # ruby >= 3.1 / psych >= 4
+      data = ::YAML.unsafe_load evaluate
+    rescue NoMethodError
+      # ruby < 3.1 / psych < 4
       data = ::YAML.load evaluate
-      # :nocov:
     end
     data ? resolve_extends(data) : nil
   end
