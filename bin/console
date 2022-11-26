@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
-require "irb"
-require "irb/completion" 
-require "extended_yaml"
+require 'irb'
+require 'irb/completion'
+require 'extended_yaml'
 
 IRB.start

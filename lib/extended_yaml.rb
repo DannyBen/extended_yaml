@@ -14,7 +14,8 @@ class ExtendedYAML
   end
 
   def initialize(file, key: 'extends')
-    @file, @key = file, key
+    @file = file
+    @key = key
   end
 
   # @return [Hash, Array, nil] the parsed YAML

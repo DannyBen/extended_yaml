@@ -10,4 +10,3 @@ ENV['TTY'] = 'on'
 RSpec.configure do |config|
   config.include Colsole
 end
-
