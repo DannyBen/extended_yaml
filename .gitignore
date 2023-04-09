@@ -1,11 +1,10 @@
 *.gem
 /.yardoc
 /coverage
-/debug.rb
+/debug.runfile
 /dev
 /doc
 /Gemfile.lock
 /gems
 /spec/tmp
 /tmp
-/toc.txt

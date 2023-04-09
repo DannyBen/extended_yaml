@@ -85,6 +85,6 @@ private
   def expand_path(path)
     path += extension unless path.end_with? extension
     path = File.expand_path path, base_dir
-    path.include?('*') ? Dir[path].sort : [path]
+    path.include?('*') ? Dir[path] : [path]
   end
 end
