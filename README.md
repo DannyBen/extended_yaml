@@ -46,8 +46,12 @@ We can now load the extended YAML file like this:
 # Load an extended YAML
 require 'extended_yaml'
 
-p ExtendedYAML.load 'examples/simple.yml'
-#=> {"settings"=>{"host"=>"localhost", "port"=>80}}
+data = ExtendedYAML.load 'examples/simple.yml'
+data['settings'].each do |k, v|
+  puts "#{k} = #{v}"
+end
+#=> host = localhost
+#=> port = 80
 ```
 
 Notes
