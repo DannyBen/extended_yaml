@@ -1,6 +1,8 @@
 Extended YAML
 ==================================================
 
+![repocard](https://repocard.dannyben.com/svg/extended_yaml.svg)
+
 ExtendedYAML adds a couple of additional features to the standard YAML 
 library:
 
